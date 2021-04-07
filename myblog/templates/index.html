@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的主页</title>
+    <link rel="stylesheet" href="/static/css/myStyle.css">
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/axios.js"></script>
+</head>
+<body>
+    <div id="home">
+        <div class="head">
+            <h1>{{ siteinfo.title }}</h1>
+            <img src="/upload/{{ siteinfo.logo }}" alt="">
+        </div>
+        <hr/>
+        <div class="content">
+            <div class="menu">
+                {% for class in classes %}
+                <div class="item">
+                    <a href="/classes/?id={{ class.id }}">{{ class.text }}</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="userlist">
+                {% if userList %}
+                  {% for item in userList %}
+                    <div class="user">
+                        <img src="/upload/{{ item.headImg }}" alt="">
+                        <p>{{ item.nickName }}</p>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                <p>没有用户</p>
+                {% endif %}
+            </div>
+        </div>
+        <hr/>
+        <div class="foot">
+            <p>Copyright @ 2021 cocohobo</p>
+        </div>
+        
+    </div>
+
+
+    <script>
+    
+    </script>
+</body>
+</html>
+
+
